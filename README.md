@@ -1,5 +1,5 @@
 # WhatToCook
-This app is based on https://www.themealdb.com API.
+This app is based on https://www.themealdb.com API.\
 Look recipes to cook some meal by categories
 
 <p align="center">
