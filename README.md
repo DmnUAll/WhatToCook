@@ -20,7 +20,7 @@ The main functionality that was applied in this project:
 - UIPickerView Delegate and Datasource methods
 
 At some moment - the project was refactored to exclude a storyboard UI design.\
-All UI is writen by code since then, but i saved my first project realisation into a separate branch, called ui_by_storyboard(before_refactoring).\
+All UI is writen by code since then, but i saved my first project realisation into a separate branch, called ui_by_storyboard(before_refactoring).
 
 Disclaimer:
 The project was made for educational purposes only.
