@@ -1,16 +1,11 @@
-//
-//  MealData.swift
-//  WhatToCook
-//
-//  Created by Илья Валито on 20.09.2022.
-//
-
 import Foundation
 
+// MARK: - MealCategoryData
 struct MealCategoryData: Codable {
     let meals: [MealCategory]
 }
 
+// MARK: - MealCategory
 struct MealCategory: Codable {
     let strCategory: String
 }

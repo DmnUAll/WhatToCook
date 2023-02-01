@@ -1,25 +1,20 @@
-//
-//  MealShortInfoManager.swift
-//  WhatToCook
-//
-//  Created by Илья Валито on 20.09.2022.
-//
-
 import Foundation
 
-protocol MealShortInfoManagerDelegate {
+// MARK: - MealShortInfoManagerDelegate protocol
+protocol MealShortInfoManagerDelegate: AnyObject {
     func updateUI()
 }
 
+// MARK: - MealShortInfoManager
 class MealShortInfoManager {
-    
+
     var meals: [MealShortInfo] = []
     var delegate: MealShortInfoManagerDelegate?
-    
+
     func performRequest(by linkTail: String) {
         if let url = URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?c=\(linkTail)") {
             let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
+            let task = session.dataTask(with: url) { data, _, error in
                 if error != nil {
                     print(error as Any)
                     return
@@ -31,7 +26,7 @@ class MealShortInfoManager {
             task.resume()
         }
     }
-    
+
     private func parseJSON(shortInfoData: Data) {
         let decoder = JSONDecoder()
         do {
@@ -42,7 +37,7 @@ class MealShortInfoManager {
             print(error.localizedDescription)
         }
     }
-    
+
     func loadFavorites() {
         print("loading favorites")
     }

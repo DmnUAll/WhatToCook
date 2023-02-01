@@ -1,16 +1,11 @@
-//
-//  MealShortInfoData.swift
-//  WhatToCook
-//
-//  Created by Илья Валито on 20.09.2022.
-//
-
 import Foundation
 
+// MARK: - MealShortInfoData
 struct MealShortInfoData: Codable {
     let meals: [MealShortInfo]
 }
 
+// MARK: - MealShortInfo
 struct MealShortInfo: Codable {
     let strMeal: String
     let strMealThumb: String

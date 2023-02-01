@@ -1,26 +1,21 @@
-//
-//  MealShortInfoManager.swift
-//  WhatToCook
-//
-//  Created by Илья Валито on 20.09.2022.
-//
-
 import Foundation
 
-protocol MealFullInfoManagerDelegate {
+// MARK: - MealFullInfoManagerDelegate protocol
+protocol MealFullInfoManagerDelegate: AnyObject {
     func updateUI()
 }
 
+// MARK: - MealFullInfoManager
 class MealFullInfoManager {
-    
+
     var meals: [[String: String?]] = []
     var delegate: MealFullInfoManagerDelegate?
-    
+
     func performRequest(by linkTail: String) {
         if let url = URL(string: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(linkTail)") {
             print(url)
             let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
+            let task = session.dataTask(with: url) { data, _, error in
                 if error != nil {
                     print(error as Any)
                     return
@@ -32,7 +27,7 @@ class MealFullInfoManager {
             task.resume()
         }
     }
-    
+
     private func parseJSON(fullInfoData: Data) {
         let decoder = JSONDecoder()
         do {
